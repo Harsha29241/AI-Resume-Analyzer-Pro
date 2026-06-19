@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Resume Analyzer Pro</h1>
+
+    <div class="card">
+        <h2>👤 Candidate Information</h2>
+
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Phone:</strong> {{ phone }}</p>
+    </div>
+
+    <div class="card">
+
+        <h2>⭐ ATS Score</h2>
+        <input
+type="hidden"
+id="ats-score"
+value="{{ ats_score }}">
+
+<br>
+
+<canvas
+id="atsChart"
+width="350"
+height="350">
+</canvas>
+
+        <div class="progress">
+            <div class="progress-bar"
+                 style="width: {{ ats_score }}%;">
+                {{ ats_score }}%
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>💼 Predicted Job Role</h2>
+
+        <h3 style="color:#1565C0;">
+            {{ predicted_role }}
+        </h3>
+
+    </div>
+
+    <div class="card">
+
+        <h2>🛠 Detected Skills</h2>
+
+        <ul>
+        {% for skill in matched_skills %}
+            <li>{{ skill }}</li>
+        {% endfor %}
+        </ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>💡 Resume Suggestions</h2>
+
+        <ul>
+        {% for item in suggestions %}
+            <li>{{ item }}</li>
+        {% endfor %}
+        </ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>📄 Resume Text</h2>
+
+        <pre>{{ resume_text }}</pre>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
+<br><br>
+
+<a href="/download">
+
+<button>
+
+Download Report
+
+</button>
+
+</a>

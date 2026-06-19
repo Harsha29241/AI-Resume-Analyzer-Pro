@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer Pro</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="hero">
+
+        <h1>AI Resume Analyzer Pro</h1>
+
+        <p>
+            Upload your resume and receive an ATS Score,
+            skill analysis, role prediction, and AI-powered
+            suggestions to improve your resume.
+        </p>
+
+    </div>
+
+
+    <div class="upload-card">
+
+        <form action="/analyze"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <div class="drop-area">
+
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png"
+                     width="90">
+
+                <h2>Upload Resume</h2>
+
+                <p>Only PDF files are supported</p>
+
+                <input
+                    type="file"
+                    name="resume"
+                    accept=".pdf"
+                    required>
+
+            </div>
+
+            <button class="btn">
+                Analyze Resume
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="features">
+
+        <div class="feature">
+
+            <h3>ATS Score</h3>
+
+            <p>
+                Calculate resume ATS compatibility.
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <h3>Skill Detection</h3>
+
+            <p>
+                Detect 100+ technical skills automatically.
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <h3>Role Prediction</h3>
+
+            <p>
+                Predict your best job role using AI logic.
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <h3>Suggestions</h3>
+
+            <p>
+                Improve your resume with smart recommendations.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
